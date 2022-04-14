@@ -7,7 +7,7 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
-from _global import Global
+from global_vars import *
 
 # Всплывающее окно при выходе из игры
 class Ui_Exit_Widget(object):
@@ -43,7 +43,7 @@ class Ui_Exit_Widget(object):
 # Всплывающее окно для продаже товаров
 class Ui_Sale_Widget(object):
         
-    def setupUi(self, Dialog, price, title, _global):
+    def setupUi(self, Dialog, price, title, G):
         Dialog.setObjectName("Dialog")
         Dialog.setEnabled(True)
         Dialog.resize(335, 280)
@@ -76,36 +76,35 @@ class Ui_Sale_Widget(object):
         self.gridLayout_2.addWidget(self.pushButton_2, 1, 1, 1, 1)
         self.gridLayout_2.addWidget(self.frame, 0, 0, 4, 1)
 
-        goods_name = ['gold', 'food', 'coal', 'iron', 'oil', 'stone', 'water', 'wood','electricity']
         goods_icon, sale_input, sale_price_label, sale_output = [], [], [], []
         for el in range(9):
             goods_icon.append(QtWidgets.QLabel(self.frame))
             goods_icon[el].setMinimumSize(QtCore.QSize(25, 25))
             goods_icon[el].setMaximumSize(QtCore.QSize(25, 25))
-            goods_icon[el].setPixmap(QtGui.QPixmap("objs/"+goods_name[el]+".bmp"))
+            goods_icon[el].setPixmap(QtGui.QPixmap("objs/"+G.GOODS_NAME[el+1]+".bmp"))
             goods_icon[el].setIndent(0)
-            goods_icon[el].setObjectName(goods_name[el]+"_icon")
+            goods_icon[el].setObjectName(G.GOODS_NAME[el]+"_icon")
             self.gridLayout.addWidget(goods_icon[el], el, 0, 1, 1)
         
             sale_input.append(QtWidgets.QLineEdit(self.frame))
             sale_input[el].setMinimumSize(QtCore.QSize(0, 20))
             sale_input[el].setMaximumSize(QtCore.QSize(45, 45))
             sale_input[el].setStyleSheet("border: 1px solid white;\n color: white;")
-            sale_input[el].setObjectName(goods_name[el]+"input")
+            sale_input[el].setObjectName(G.GOODS_NAME[el+1]+"input")
             self.gridLayout.addWidget(sale_input[el], el, 1, 1, 1)     
             if len(sale_input[el].text()) == 0:
                 sale_input[el].setText('0')
         
             sale_price_label.append(QtWidgets.QLabel(self.frame))
             sale_price_label[el].setStyleSheet("border: 1px solid white;\n color: white;")
-            sale_price_label[el].setObjectName(goods_name[el]+"_price")
+            sale_price_label[el].setObjectName(G.GOODS_NAME[el+1]+"_price")
             sale_price_label[el].setText(str(price[el]))
             sale_price_label[el].setMaximumSize(QtCore.QSize(50, 50))
             self.gridLayout.addWidget(sale_price_label[el], el, 2, 1, 1)
         
             sale_output.append(QtWidgets.QLabel(self.frame))
             sale_output[el].setStyleSheet("border: 1px solid white;\n color: white;")
-            sale_output[el].setObjectName(goods_name[el]+"_output")
+            sale_output[el].setObjectName(G.GOODS_NAME[el+1]+"_output")
             sale_output[el].setMinimumSize(QtCore.QSize(95, 0))    
             self.gridLayout.addWidget(sale_output[el], el, 3, 1, 1)
         def calculated():
@@ -121,23 +120,23 @@ class Ui_Sale_Widget(object):
         
         def all_for_trade():
             for el in range(9):
-                sale_input[el].setText(_global.capital[el+1])
+                sale_input[el].setText(G.capital[el+1])
                 
         def sold ():
             permission = []
             for el in range(9):
-                permission.append(int(_global.capital[el+1]) >= int(sale_input[el].text()))
+                permission.append(int(G.capital[el+1]) >= int(sale_input[el].text()))
             if  permission.count(False) == 0:
                 for el in range(9):
-                    _global.capital[el+1] = str(int(_global.capital[el+1]) - int(sale_input[el].text()))
-                _global.capital[0] = str(int(_global.capital[0]) + calculated())
+                    G.capital[el+1] = str(int(G.capital[el+1]) - int(sale_input[el].text()))
+                G.capital[0] = str(int(G.capital[0]) + calculated())
                 Dialog.close()
         
         def bought ():
-                if int(_global.capital[0]) >= calculated():
+                if int(G.capital[0]) >= calculated():
                     for el in range(9):
-                        _global.capital[el+1] = str(int(_global.capital[el+1]) + int(sale_input[el].text()))
-                    _global.capital[0] = str(int(_global.capital[0]) - calculated())
+                        G.capital[el+1] = str(int(G.capital[el+1]) + int(sale_input[el].text()))
+                    G.capital[0] = str(int(G.capital[0]) - calculated())
                     Dialog.close()
                 else: pass
                 
@@ -175,18 +174,3 @@ class Ui_Sale_Widget(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         self.pushButton_2.setText(_translate("Dialog", "Cancel"))
-
-        
-#Недоделаный класс для всех кнопок в игре (22 штуки)
-#class Button(object):
-#    def __init__(self):
-#        super(Button, self).__init__()
-#        self.ui = Ui_MainWindow()
-#        self.ui.setupUi(self)
-#        self.init_UI()
-#        
-#    def init_UI(self):
-#        self.setIconSize(QtCore.QSize(25, 25))
-#        self.setAutoDefault(False)
-#        self.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
-

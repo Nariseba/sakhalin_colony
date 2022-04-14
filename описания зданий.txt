@@ -1,65 +1,20 @@
-imporn sqlite3
-from sqlite3 import Error
+Farm (1) - 15500 \n Can be built everywhere for 38 days. 1200 days to live. Works during: spring; summer; autumm. \n Consumption: water - 2 \n Production: food - 38
 
+Quarry (2) - 20200 \n Can be built on iron soil for 36 days. 1200 days to live. Works during: summer. \n Consumption: oil - 8 \n Production: iron - 8, stone - 30
 
-def create_connection(path):
-    connection = None
-    try:
-        connection = sqlite3.connect(path)
-        print("Connection to SQLite DB successful")
-    except Error as e:
-        print(f"The error '{e}' occurred")
-    return connection
+Garden (3) - 18000 \n Can be built everywhere for 20 days. 3800 days to live. Works during: summer; autumm.\n Consumption: water - 2 \n Production: food - 38
 
-connection = create_connection("C:\Games\Sakhalin\draft")
+Oil-production (4) - 57500 \n Can be built oil soil for 46 days. 900 days to live. Works during: summer. \n Consumption: none \n Production: oil - 8
 
-Farm (1) - 15500
-Can be built everywhere for 38 days. 1200 days to live. Works during: spring; summer; autumm.
-Consumption: water - 2
-Production: food - 38
+Waterpipes (5) - 8100 \n Can be built on water for 38 days. 900 days to live. Works during: spring; summer; autumm. \n Consumption: none \n Production: water - 4
 
-Quarry (2) - 20200
-Can be built on iron soil for 36 days. 1200 days to live. Works during: summer.
-Consumption: oil - 8
-Production: iron - 8, stone - 30
+Goldmine (6) - 132000 \n Can be built on golden soil for 20 days. 900 days to live. Works during: summer. \n Consumption: water - 200 \n Production: gold - 2, stone - 100
 
-Garden (3) - 18000
-Can be built everywhere for 20 days. 3800 days to live. Works during: summer; autumm.
-Consumption: water - 2
-Production: food - 38
+Sawmill (7) - 35500 \n Can be built wood-soil for 10 days. 900 days to live. Works during: winter; spring; summer; autumm. \n Consumption: iron - 1, oil - 2 \n Production: wood - 18
 
-Oil-production (4) - 57500
-Can be built oil soil for 46 days. 900 days to live. Works during: summer.
-Consumption: none
-Production: oil - 8
+\n Powerstation (8) - 23000 \n Can be built everywhere for 65 days. 1600 days to live. Works during: winter; spring; summer; autumm. \n Consumption: oil - 1 \n Production: electricity - 2
 
-Waterpipes (5) - 8100
-Can be built on water for 38 days. 900 days to live. Works during: spring; summer; autumm.
-Consumption: none
-Production: water - 4
+Mine (9) - 63000 \n Can be built on coal soil for 68 days. 1200 days to live. Works during: winter; spring; summer; autumm. \n Consumption: wood - 2, electricity - 2 \n Production: coal - 4, stone - 20
 
-Goldmine (6) - 132000
-Can be built on golden soil for 20 days. 900 days to live. Works during: summer.
-Consumption: water - 200
-Production: gold - 2, stone - 100
-
-Sawmill (7) - 35500
-Can be built wood-soil for 10 days. 1200 days to live. Works during: winter; spring; summer; autumm.
-Consumption: iron - 1, oil - 2
-Production: wood - 18
-
-Powerstation (8) - 23000
-Can be built everywhere for 65 days. 1600 days to live. Works during: winter; spring; summer; autumm.
-Consumption: oil - 1
-Production: electricity - 2
-
-Mine (9) - 63000
-Can be built on coal soil for 68 days. 1200 days to live. Works during: winter; spring; summer; autumm.
-Consumption: wood - 2, electricity - 2
-Production: coal - 4, stone - 20
-
-Hydrostation (0) - 71500
-Can be built on water for 100 days. 3200 days to live. Works during: winter; spring; summer; autumm.
-Consumption: none
-Production: electricity - 1
+Hydrostation (0) - 71500 \n Can be built on water for 100 days. 3200 days to live. Works during: winter; spring; summer; autumm. \n Consumption: none \n Production: electricity - 1
 
