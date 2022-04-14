@@ -1,0 +1,2 @@
+python 3 (was written via 3.10.3v)
+PyQT6 (QtCore, QtGui, QtWidgets)
