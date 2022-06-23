@@ -1,0 +1,47 @@
+Add:
+	--multiplayer
+	--Rus&Eng language translation
+    --gameArea scaling
+    --scalable images
+    -buildings (for Stone, for Citizens, Storehouse, for Children)
+    -unVisible tiles exploring
+	-temperature
+	-logging of time for all 'heavy' functions
+Fix:
+	--lagging
+    -sound
+    -buildings' tooltips
+	-naming
+	-InitGameSettings widget bindings
+Refactor:
+	-new_game, save_game, load_game
+    --CSS for app
+
+Done:
+	-settings widget
+	-use datetime modul in dateWidget
+	-buildingStatusImg [building, notInSeason, NotEnoughWorkers, NotEnoughResourses, locked, DectructsSoon]
+	-wetness
+	-refactor the whole structure
+    --separate modules
+	-height and depth of tiles (z)
+    -Tile: def setImage
+    -keyboard picking
+    -miniMap's yellow focus rectangle
+    -tiles' borders
+	-buildings' attributes(cost, prod, ets)
+    -population gameplay
+    -better background-image
+	
+	
+	
+	
+	
+	Барон		Baron
+	Байрон		Byron
+	Банан		Banan
+	БигБен		BigBen
+
+	Белла		Bella
+	Берта		Berta
+	Бретта		Bretta
